@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+   <ul  v-for="i of even(nums)">
+       <li>{{i}}</li>
+   </ul>
+</div>
+
+<div id="app2">
+    <ul  v-for="i of oddNums">
+        <li>{{i}}</li>
+    </ul>
+</div>
+
+</body>
+<script>
+    //数据绑定
+    var app = new Vue({
+        el:'#app',
+        data:{
+            nums:[1,2,3,4,5,6,7,8,9]
+        },
+        methods:{
+            even(nums){
+                return  nums.filter(function(nums){
+                    return nums%2==0
+                })
+            }
+        }
+    });
+
+
+    var app2 = new Vue({
+        el:'#app2',
+        data:{
+            nums:[1,2,3,4,5,6,7,8,9]
+        },
+        computed:{
+            oddNums(){
+                return  this.nums.filter(function(nums){
+                    return nums%2==0
+                })
+            }
+        }
+    });
+</script>
+</html>

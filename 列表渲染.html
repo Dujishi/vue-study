@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+      <ul>
+          <li v-for="item in items">
+              {{item.message}}
+          </li>
+      </ul>
+
+    <ul>
+        <li v-for="item of items">
+            {{item.message}}
+        </li>
+    </ul>
+
+
+    <ul>
+        <li v-for="(item,index) in items">
+            {{index}}--{{item.message}}
+        </li>
+    </ul>
+
+    <ul>
+        <li v-for="(item,index) of items">
+            {{index}}--{{item.message}}
+        </li>
+    </ul>
+
+    <ul>
+        <template v-for="(item,index) in items">
+            <li >
+                {{item.message}}
+            </li>
+            <div>第{{index}}个</div>
+        </template>
+
+    </ul>
+
+</div>
+
+</body>
+<script>
+    //数据绑定
+    var app = new Vue({
+        el:'#app',
+        data:{
+            items:[
+                {message:'aaa'},
+                {message:'bbb'},
+                {message:'ccc'}
+            ]
+        },
+
+    });
+
+</script>
+</html>

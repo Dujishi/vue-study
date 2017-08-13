@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1 v-on:click="click" :data-id="id">You input is{{message}}</h1>
+    <input type="text" v-model="message">
+</div>
+
+<div id="app2">
+        <span v-bind:title="message2">
+            停留看加载时间
+        </span>
+</div>
+
+<div id="app3">
+    <p v-if="seen">现在你看到我了</p>
+</div>
+
+<div id="app4">
+    <ol>
+        <li v-for="i in list">
+            {{i.text}}
+        </li>
+    </ol>
+</div>
+
+<div id="app5">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+
+<div id="app6">
+    <ol>
+        <dujs v-for="i in list" v-bind:todo="i"></dujs>
+    </ol>
+</div>
+</body>
+<script>
+    //数据绑定
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            id:'111'
+        },
+        methods:{
+            click(){
+                alert("click")
+            }
+        }
+    });
+
+    var app2 = new Vue({
+        el:"#app2",
+        data:{
+            message2:'页面家在于'+new Date()
+        }
+    })
+
+    var app3 = new Vue({
+        el:'#app3',
+        data:{
+            seen:true
+        }
+    })
+
+    var app4 =new Vue({
+        el:"#app4",
+        data:{
+            list:[
+                {text:'学习js'},
+                {text:'学习vue'},
+                {text:'我爱vue'}
+            ]
+        }
+    })
+
+    var app5 = new Vue({
+        el:'#app5',
+        data:{
+            message:'dujishi is a good boy'
+        },
+        methods:{
+            reverseMessage(){
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+
+    Vue.component('dujs',{
+        props:['todo'],
+        template:"<li>{{todo.text}}</li>"
+    })
+
+    var app6=new Vue({
+        el:"#app6",
+        data:{
+            list:[
+            {text:'爱国'},
+            {text:'爱民'},
+            {text:'爱家'}
+        ]}
+    })
+
+</script>
+</html>

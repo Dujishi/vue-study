@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+   <p @click="count++" :style="style" @mouseover="mouseover"  >{{count}}</p>
+
+    <butoon @click="newAlert('不可以提交',$event)">按钮</butoon>
+
+</div>
+
+
+</body>
+<script>
+    //数据绑定
+    var app = new Vue({
+        el:'#app',
+        data:{
+            count:0,
+            style:{
+                  width:'100px',
+                  height:'100px',
+                  background:'red',
+                  color:'#fff'
+                },
+        },
+        methods:{
+            mouseover(e){
+                this.count = e.target.tagName
+            },
+            newAlert(message,event){
+                if(event)event.preventDefault();
+                alert(message)
+            }
+
+        }
+    });
+
+</script>
+</html>

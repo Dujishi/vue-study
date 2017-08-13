@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div :class="{active:isActive,'text-danger':hasError}">dujishi</div>
+    <div :class="classObj">dujishi2</div>
+</div>
+
+<div id="app2">
+    <div :class="[{activeClass:isActive},hasError]">dujishi3</div>
+</div>
+
+<div id="app3">
+    <div :style="styleObj">dujishi4</div>
+</div>
+
+<div id="app4">
+    <div :style="[baseStyle,overStyle]">dujishi5</div>
+</div>
+</body>
+<script>
+    //对象语法
+    var app = new Vue({
+        el:'#app',
+        data:{
+           isActive:false,
+            hasError:true,
+            classObj:{
+               isShow:true,
+                isFull:true
+            }
+        },
+    });
+
+    //数组语法
+    var app2 = new Vue({
+        el:'#app2',
+        data:{
+            isActive:true,
+            hasError:'hasError'
+
+        },
+    });
+
+    //style 对象语法
+    var app3 = new Vue({
+        el:'#app3',
+        data:{
+            styleObj:{
+                color:'red',
+                fontSize:'22px'
+            }
+        },
+    });
+
+    //style 数组语法
+    var app4 = new Vue({
+        el:'#app4',
+        data:{
+            baseStyle:{
+                width:'10px',
+                height:'100px',
+                color:'red',
+                'font-size':'20px'
+            },
+            overStyle:{
+                color:'green',
+                'border':'5px solid #ccc',
+                'border-radius':'10px'
+            }
+        },
+    });
+
+
+</script>
+</html>

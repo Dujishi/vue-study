@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="Math.random()>0.4">
+        看到我
+    </div>
+    <div v-else>看不到</div>
+
+    <template v-if="ok">
+        <h1>dujishi</h1>
+    </template>
+
+    <!--v-else 元素必须紧跟在 v-if 或者 v-else-if 元素的后面,-->
+    <!--否则它将不会被识别。-->
+
+    <div v-if="type == 'A'">a</div>
+    <div v-else-if="type == 'B'">b</div>
+    <div v-else-if="type == 'C'">c</div>
+    <div v-else>d</div>
+
+</div>
+
+</body>
+<script>
+    //数据绑定
+    var app = new Vue({
+        el:'#app',
+        data:{
+            ok:true,
+            type:'B'
+        },
+
+    });
+
+</script>
+</html>

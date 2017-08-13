@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <my-component></my-component>
+</div>
+
+<div class="example2">
+    <good></good>
+</div>
+
+<div id="example3">
+    <plus></plus>
+    <plus></plus>
+    <plus></plus>
+</div>
+</body>
+<script>
+
+    //注册组件
+    Vue.component('my-component',{
+        template:'<div>dujishi</div>'
+    });
+
+    //创建根实例
+    new Vue({
+        el:'#example'
+    });
+
+
+    var  Child = {
+        template:'<div> is a good boy</div>'
+    };
+
+    new Vue({
+        el:'.example2',
+        components:{
+            'good':Child
+        }
+    })
+
+//通过Vue构造器传入的各种选项大多数都可以在组件里用。 data 是一个例外，它必须是函数
+    Vue.component('plus',{
+        template:'<button @click="count++">{{count}}</button>',
+        data:function(){
+            return{
+                count:0
+            }
+        }
+    })
+
+    new Vue({
+        el:'#example3'
+    })
+
+
+</script>
+</html>
