@@ -8,10 +8,15 @@
 <body>
 <div id="app">
     <div v-if="Math.random()>0.4">
-        看到我
+       0.4
+    </div>
+    <div v-else-if="Math.random()>0.5">
+       0.5
     </div>
     <div v-else>看不到</div>
 
+
+    <!--template渲染一整组-->
     <template v-if="ok">
         <h1>dujishi</h1>
     </template>
@@ -24,8 +29,10 @@
     <div v-else-if="type == 'C'">c</div>
     <div v-else>d</div>
 
-</div>
+    <h1 v-show="ok">Hello!</h1>
+    <!--v-show 不支持 <template> 语法，也不支持 v-else。-->
 
+</div>
 </body>
 <script>
     //数据绑定
