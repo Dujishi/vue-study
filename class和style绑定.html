@@ -7,7 +7,25 @@
 </head>
 <body>
 <div id="app">
+<<<<<<< HEAD
    {{msg}}
+=======
+    <div :class="{active:isActive,'text-danger':hasError}">dujishi</div>
+    <div :class="classObj">dujishi2</div>
+</div>
+
+<div id="app2">
+    <div :class="[{activeClass:isActive},hasError]">dujishi3</div>
+</div>
+
+<div id="app3">
+    <div :style="styleObj">dujishi4</div>
+</div>
+
+<div id="app4">
+    <div :style="[baseStyle,overStyle]">dujishi5</div>
+    <form v-on:submit.prevent="onSubmit"></form>
+>>>>>>> 92b7c7c38f8d01cc9a15cf1bdb3592bef4ea2709
 </div>
 </body>
 <script>
